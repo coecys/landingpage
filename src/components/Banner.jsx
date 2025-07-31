@@ -18,7 +18,7 @@ export default function Banner() {
       <div className="relative z-10 px-6 md:px-0 max-w-2xl">
         <h1 className="text-5xl md:text-6xl font-bold mb-4">COECYS 2025</h1>
         <p className="text-lg md:text-xl mb-8">
-          Del 22 al 26 de septiembre &middot; Edificio TEC, Zona 4
+          Del 29 de septiembre al 3 de octubre &middot; Edificio TEC, Zona 4
         </p>
         <p className="text-2xl md:text-3xl font-semibold mb-8">
           Ciencia de Datos <br className="block md:hidden" />
