@@ -105,7 +105,7 @@ export default function Participar() {
         </div>
 
         {/* Asistente */}
-        <div className="space-y-4">
+        {/* <div className="space-y-4">
           <h2 className="text-2xl font-semibold">¿Eres asistente?</h2>
           <p className="text-gray-700">
             Completa el formulario de registro para asegurar tu participación.
@@ -115,7 +115,7 @@ export default function Participar() {
               Ir a registro
             </button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

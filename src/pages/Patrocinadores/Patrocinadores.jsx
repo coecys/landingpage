@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 
 // Datos de ejemplo
 const platinumSponsors = [
-  { name: "", color: "bg-blue-300" },
-  { name: "", color: "bg-gray-400" },
-  { name: "", color: "bg-gray-500" },
+  { id: "gobiernoa", name: "Gobierno Abierto", logo: "https://i.ibb.co/TD40tLvT/Imagen-de-Whats-App-2025-08-04-a-las-10-40-20-11aad78a.jpg" },
 ];
 
 // Otros patrocinadores dummy
@@ -25,21 +23,27 @@ const silverSponsors = [
       "https://i.ibb.co/4n5YDwSb/Imagen-de-Whats-App-2025-07-25-a-las-14-31-52-eab66292.jpg",
     name: "SISAP",
   },
+  {
+    id: "esource",
+    logo:
+      "https://i.ibb.co/vx5FR6TQ/Imagen-de-Whats-App-2025-08-12-a-las-15-57-44-fffeae22.jpg",
+    name: "eSource Capital",
+  },
 ];
 // Sección Básico
 const basicSponsors = otherSponsors.slice(6, 9);
 
 const categories = [
-  { title: "Oro", items: goldSponsors },
+  //{ title: "Oro", items: goldSponsors },
   { title: "Plata", items: silverSponsors },
   // { title: "Básico", items: basicSponsors },
 ];
 
 // Mapa de tamaños por categoría\
 const sizeMap = {
-  Platino: "w-32 h-32",
+  Platino: "w-[360px] h-[160px] md:w-[440px] md:h-[180px]",
   Oro: "w-20 h-20",
-  Plata: "w-24 h-24",
+  Plata: "w-28 h-28 md:w-32 md:h-32",
   Básico: "w-16 h-16",
 };
 
@@ -59,7 +63,15 @@ export default function Patrocinadores() {
                 key={s.name}
                 className={`${sizeMap.Platino} ${s.color} rounded flex items-center justify-center shadow-lg`}
               >
-                <span className="text-gray-700 font-medium text-lg">{s.name}</span>
+                {s.logo ? (
+                  <img
+                    src={s.logo}
+                    alt={s.name}
+                  //className={`${sizeMap[cat.title]} object-contain rounded shadow-md bg-white p-2`}
+                  />
+                ) : (
+                  <span className="text-gray-700 font-medium text-lg">{s.name}</span>
+                )}
               </div>
             ))}
           </div>

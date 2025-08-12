@@ -5,7 +5,7 @@ import utc from "dayjs/plugin/utc";
 import emailjs from "emailjs-com";
 dayjs.extend(utc);
 
-const participationOptions = ["Asistente", "Taller", "Conferencista"];
+const participationOptions = ["Taller", "Conferencista"];
 
 export default function Registro() {
   const [form, setForm] = useState({
@@ -13,7 +13,7 @@ export default function Registro() {
     university: "",
     career: "",
     email: "",
-    type: "Asistente",
+    type: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
