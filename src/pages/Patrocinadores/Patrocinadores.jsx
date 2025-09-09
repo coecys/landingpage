@@ -29,6 +29,12 @@ const silverSponsors = [
       "https://i.ibb.co/vx5FR6TQ/Imagen-de-Whats-App-2025-08-12-a-las-15-57-44-fffeae22.jpg",
     name: "eSource Capital",
   },
+  {
+    id: "group",
+    logo:
+      "https://i.ibb.co/cSzWhnNB/Logo-Group-editable-3-2.png",
+    name: "eSource Capital",
+  },
 ];
 // Sección Básico
 const basicSponsors = otherSponsors.slice(6, 9);
