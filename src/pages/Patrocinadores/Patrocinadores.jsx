@@ -33,7 +33,7 @@ const silverSponsors = [
     id: "group",
     logo:
       "https://i.ibb.co/cSzWhnNB/Logo-Group-editable-3-2.png",
-    name: "eSource Capital",
+    name: "Group Technology",
   },
 ];
 // Sección Básico
