@@ -3,6 +3,19 @@ import React, { useState } from "react";
 
 // Datos de ejemplo: cada año tiene un array de URLs de imágenes
 const photoData = {
+    2025: [
+        "/precongreso.jpg",
+        "/precongreso1.jpg",
+        "/precongreso2.jpg",
+        "/precongreso3.jpg",
+        "/precongreso4.jpg",
+        "/precongreso5.jpg",
+        "/precongreso6.jpg",
+        "/precongreso7.jpg",
+        "/precongreso8.jpg",
+        "/precongreso9.jpg",
+        "/precongreso10.jpg",
+    ],
     2024: [
         "/pasado1.jpeg",
         "/pasado2.jpeg",
