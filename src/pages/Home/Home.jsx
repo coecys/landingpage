@@ -14,7 +14,7 @@ export default function Home() {
         <Banner />
 
         {/* Cuenta regresiva */}
-        <Countdown targetDate="2025-09-22T09:00:00" />
+        <Countdown targetDate="2025-09-29T08:00:00" />
 
         {/* Acceso rápido */}
         <QuickLinks />
