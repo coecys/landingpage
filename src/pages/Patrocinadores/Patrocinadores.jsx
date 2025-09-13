@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 // Datos de ejemplo
 const platinumSponsors = [
-  { id: "gobiernoa", name: "Gobierno Abierto", logo: "https://i.ibb.co/TD40tLvT/Imagen-de-Whats-App-2025-08-04-a-las-10-40-20-11aad78a.jpg" },
+  //{ id: "gobiernoa", name: "Gobierno Abierto", logo: "https://i.ibb.co/TD40tLvT/Imagen-de-Whats-App-2025-08-04-a-las-10-40-20-11aad78a.jpg" },
 ];
 
 // Otros patrocinadores dummy
