@@ -14,7 +14,7 @@ const photoData = {
         "/precongreso7.jpg",
         "/precongreso8.jpg",
         "/precongreso9.jpg",
-        "/precongreso10.jpg",
+        "/precongreso10.png",
     ],
     2024: [
         "/pasado1.jpeg",
