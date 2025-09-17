@@ -105,17 +105,45 @@ export default function Participar() {
         </div>
 
         {/* Asistente */}
-        {/* <div className="space-y-4">
+        <div className="space-y-4">
           <h2 className="text-2xl font-semibold">¿Eres asistente?</h2>
-          <p className="text-gray-700">
+          <div className="mt-12">
+            <h3 className="text-xl font-semibold mb-4">Formulario de Asistencia</h3>
+            <div className="w-full h-[1100px] rounded-xl overflow-hidden border">
+              <iframe
+                title="Formulario de Conferencistas COECYS 2025"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdEheyleAw2YKKuaa_0h_wLovx5TEDAInWP3jaawDtAx8KsdQ/viewform?embedded=true"
+                className="w-full h-full"
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+                loading="lazy"
+                allow="clipboard-read; clipboard-write"
+              >
+                Cargando…
+              </iframe>
+            </div>
+
+            {/* Botón de respaldo por si el navegador bloquea el login dentro del iframe */}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdEheyleAw2YKKuaa_0h_wLovx5TEDAInWP3jaawDtAx8KsdQ/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 text-sm underline"
+            >
+              Abrir el formulario en una pestaña nueva
+            </a>
+          </div>
+
+          {/* <p className="text-gray-700">
             Completa el formulario de registro para asegurar tu participación.
           </p>
           <Link to="/registro">
             <button className="mt-8 bg-orange-500 hover:bg-orange-400 text-white font-medium py-2 px-6 rounded-full transition">
               Ir a registro
             </button>
-          </Link>
-        </div> */}
+          </Link> */}
+        </div>
       </div>
     </section>
   );
