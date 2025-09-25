@@ -170,9 +170,13 @@ const DAYS = [
     },
     {
         id: "2025-10-02",
-        label: "Jueves 2",
+        label: "Jueves 02",
         venue: "Torre 3, Campus Tec — Zona 4",
-        tracks: [{ key: "conf", name: "Conferencia", room: "Aula Magna" }],
+        tracks: [
+            { key: "conf", name: "Conferencia", room: "Aula Magna" },
+            { key: "taller", name: "Taller", room: "Salón 206" },
+            { key: "virtual", name: "Conferencia Virtual", room: "Meet/Zoom" },
+        ],
         slots: [
             timeBlock("08:00", "09:00", {
                 conf: talk(
@@ -182,30 +186,28 @@ const DAYS = [
             }),
             timeBlock("09:00", "10:00", {
                 conf: talk("Criptografía post-cuántica", "Kevin Adiel Lajpop"),
+                virtual: talk("Título a definir", "José Luis Ola García", "Empresa Internaciones"),
             }),
             timeBlock("10:00", "11:00", { conf: talk("Cyber Threat", "Marvin Amador") }),
             timeBlock("11:00", "11:30", { conf: special("COFFEE BREAK") }),
             timeBlock("11:40", "12:40", {
-                conf: talk(
-                    "Automatización de procesos con Power Automate",
-                    "Marlon Orellana"
+                conf: talk("Automatización de procesos con Power Automate", "Marlon Orellana"),
+                virtual: talk(
+                    "Los desafíos de la ciberseguridad para los jóvenes y egresados",
+                    "Gustavo Guzmán Hernández",
+                    "México"
                 ),
             }),
             timeBlock("13:00", "14:00", { conf: special("ALMUERZO") }),
             timeBlock("14:00", "15:00", {
-                conf: talk(
-                    "Defendiendo el futuro: Seguridad digital en la era de la IA",
-                    "Luis Pablo Liquez"
-                ),
+                conf: talk("Defendiendo el futuro: Seguridad digital en la era de la IA", "Luis Pablo Liquez"),
             }),
             timeBlock("15:00", "16:00", {
-                conf: talk(
-                    "Del entretenimiento a la disrupción: el verdadero potencial de la IA",
-                    "Juan Diego Vega"
-                ),
+                conf: talk("Del entretenimiento a la disrupción: el verdadero potencial de la IA", "Juan Diego Vega"),
             }),
         ],
     },
+
     {
         id: "2025-10-03",
         label: "Viernes 03",
@@ -230,7 +232,7 @@ const DAYS = [
                 ),
             }),
             timeBlock("10:00", "11:00", {
-                conf: talk("Embeddings, el Lenguaje Secreto de la IA", "Cristián Lavarrela"),
+                conf: talk("Embeddings, el Lenguaje Secreto de la IA", "Cristián Lavarreda"),
                 taller: talk("Social Engineering", "Rafael Valladares"),
             }),
             timeBlock("11:00", "11:30", {
@@ -318,8 +320,8 @@ export default function EventSchedule() {
                                 onClick={() => setActiveDay(d.id)}
                                 aria-selected={active}
                                 className={`relative whitespace-nowrap rounded-2xl border px-4 py-2 text-sm md:text-base shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${active
-                                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-transparent"
-                                        : "bg-white text-gray-700 hover:bg-gray-50 border-gray-200"
+                                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-transparent"
+                                    : "bg-white text-gray-700 hover:bg-gray-50 border-gray-200"
                                     }`}
                             >
                                 {d.label}
@@ -335,12 +337,21 @@ export default function EventSchedule() {
             {/* Leyenda */}
             <div className="flex flex-wrap items-center gap-3 mb-4">
                 <Badge className="bg-blue-600/10 text-blue-700">Conferencia</Badge>
+                <Badge className="bg-orange-800/10 text-orange-800">Conferencia Virtual</Badge>
                 <Badge className="bg-emerald-600/10 text-emerald-700">Taller</Badge>
                 <Badge className="bg-violet-600 text-white">COFFEE BREAK / ALMUERZO</Badge>
             </div>
 
             {/* Grid */}
-            <div className={`hidden md:grid gap-3 relative ${trackList.length === 2 ? "grid-cols-[110px,1fr,1fr]" : "grid-cols-[110px,1fr]"}`}>
+            <div
+                className={`hidden md:grid gap-3 relative ${trackList.length === 3
+                    ? "grid-cols-[110px,1fr,1fr,1fr]"
+                    : trackList.length === 2
+                        ? "grid-cols-[110px,1fr,1fr]"
+                        : "grid-cols-[110px,1fr]"
+                    }`}
+            >
+
                 {/* Guías verticales (2 columnas máximas) */}
                 <div className="absolute inset-y-0 left-[110px] right-0 pointer-events-none grid grid-cols-2">
                     <div className="border-l border-dashed border-gray-200" />
@@ -353,8 +364,8 @@ export default function EventSchedule() {
                     <div
                         key={t.key}
                         className={`rounded-2xl p-4 shadow-sm ${t.key === "_empty"
-                                ? "bg-white border border-dashed border-gray-200 text-gray-400"
-                                : "bg-slate-900 text-white"
+                            ? "bg-white border border-dashed border-gray-200 text-gray-400"
+                            : "bg-slate-900 text-white"
                             }`}
                     >
                         <div className="text-lg font-semibold">{t.name}</div>
@@ -471,14 +482,14 @@ function Cell({ data, onClick, trackKey }) {
     }
     const base = trackKey === "conf"
         ? "from-blue-600/15 to-blue-600/5 ring-blue-600/20 border-blue-600/30"
-        : "from-emerald-600/15 to-emerald-600/5 ring-emerald-600/20 border-emerald-600/30";
+        : trackKey === "taller" ? "from-emerald-600/15 to-emerald-600/5 ring-emerald-600/20 border-emerald-600/30" : "from-orange-800/15 to-orange-800/5 ring-orange-800/20 border-orange-800/30";
     return (
         <button
             onClick={onClick}
             className={`group relative overflow-hidden rounded-2xl p-4 text-left shadow-sm ring-1 transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 bg-gradient-to-br ${base}`}
         >
             <span
-                className={`absolute left-0 top-0 h-full w-1 ${trackKey === "conf" ? "bg-blue-600" : "bg-emerald-600"
+                className={`absolute left-0 top-0 h-full w-1 ${trackKey === "conf" ? "bg-blue-600" : trackKey === "taller" ? "bg-emerald-600" : "bg-orange-600"
                     }`}
             />
             <CellInner data={data} />
@@ -505,7 +516,7 @@ function CellInner({ data, compact = false }) {
 function Detail({ track, slot }) {
     const data = slot.cells[track.key];
     const isSpecial = data?.kind === "special";
-    const color = track.key === "conf" ? "bg-blue-600" : "bg-emerald-600";
+    const color = track.key === "conf" ? "bg-blue-600" : track.key === "taller" ? "bg-emerald-600" : "bg-yellow-800";
     return (
         <div className="p-0">
             <div className={`px-4 py-3 text-white ${color}`}>
