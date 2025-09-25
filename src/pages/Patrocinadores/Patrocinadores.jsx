@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 
 // Datos de ejemplo
 const platinumSponsors = [
-  //{ id: "gobiernoa", name: "Gobierno Abierto", logo: "https://i.ibb.co/TD40tLvT/Imagen-de-Whats-App-2025-08-04-a-las-10-40-20-11aad78a.jpg" },
+  { id: "facultad", name: "Facultad de Ingeniería USAC", logo: "https://portal.ingenieria.usac.edu.gt/images/logo_facultad/fiusac_negro.png" },
+  { id: "cementos", name: "Cementos Progreso", logo: "https://sinergica.org/media/com_edocman/document/document_65d96d300ed8blogo-cementos-progreso.png" },
+];
+
+const goldSponsors = [
+  { id: "usac", name: "Universidad de San Carlos de Guatemala", logo: "https://virtual.usac.edu.gt/deai/wp-content/uploads/2024/08/LOGO-USAC-PUBLICA_Mesa-de-trabajo-1-copia-4.png" }
 ];
 
 // Otros patrocinadores dummy
@@ -14,13 +19,14 @@ const otherSponsors = Array.from({ length: 12 }).map((_, i) => ({
 }));
 
 // Sección Oro
-const goldSponsors = otherSponsors.slice(0, 3);
+//const goldSponsors = otherSponsors.slice(0, 3);
 // Sección Plata con SISAP añadido
 const silverSponsors = [
   {
     id: "sisap",
     logo:
       "https://i.ibb.co/4n5YDwSb/Imagen-de-Whats-App-2025-07-25-a-las-14-31-52-eab66292.jpg",
+
     name: "SISAP",
   },
   {
@@ -40,18 +46,19 @@ const silverSponsors = [
 const basicSponsors = otherSponsors.slice(6, 9);
 
 const categories = [
-  //{ title: "Oro", items: goldSponsors },
+  { title: "Oro", items: goldSponsors },
   { title: "Plata", items: silverSponsors },
   // { title: "Básico", items: basicSponsors },
 ];
 
 // Mapa de tamaños por categoría\
 const sizeMap = {
-  Platino: "w-[360px] h-[160px] md:w-[440px] md:h-[180px]",
-  Oro: "w-20 h-20",
-  Plata: "w-28 h-28 md:w-32 md:h-32",
-  Básico: "w-16 h-16",
+  Platino: "w-[300px] h-[140px] md:w-[360px] md:h-[160px]", // un poco más pequeño
+  Oro: "w-32 h-32 md:w-36 md:h-36",                     // un poco más grande
+  Plata: "w-28 h-28 md:w-32 md:h-32",                     // igual
+  Básico: "w-16 h-16 md:w-20 md:h-20",
 };
+
 
 export default function Patrocinadores() {
   return (
@@ -61,49 +68,42 @@ export default function Patrocinadores() {
         <h1 className="text-3xl font-bold mb-8">Patrocinadores</h1>
 
         {/* Platino */}
-        <div className="mb-12">
+        <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Patrocinadores Platino</h2>
-          <div className="flex justify-center items-center space-x-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 place-items-center">
             {platinumSponsors.map((s) => (
               <div
                 key={s.name}
-                className={`${sizeMap.Platino} ${s.color} rounded flex items-center justify-center shadow-lg`}
+                className={`${sizeMap.Platino} rounded flex items-center justify-center shadow-lg bg-white`}
               >
-                {s.logo ? (
-                  <img
-                    src={s.logo}
-                    alt={s.name}
-                  //className={`${sizeMap[cat.title]} object-contain rounded shadow-md bg-white p-2`}
-                  />
-                ) : (
-                  <span className="text-gray-700 font-medium text-lg">{s.name}</span>
-                )}
+                <img src={s.logo} alt={s.name} className="w-full h-full object-contain p-2" />
               </div>
             ))}
           </div>
         </div>
 
+
         {/* Categorías */}
-        <div className="mb-12">
-          <div className="flex flex-col items-center space-y-8">
+        <div className="mb-8">
+          <div className="flex flex-col items-center gap-8">
             {categories.map((cat) => (
               <div key={cat.title} className="w-full">
-                <h3 className="font-semibold mb-4 text-lg">{cat.title}</h3>
-                <div className="flex justify-center space-x-8">
+                <h3 className="font-semibold mb-3 text-lg">{cat.title}</h3>
+
+                <div
+                  className={`grid ${cat.items.length === 1
+                      ? "grid-cols-1"
+                      : "grid-cols-2 sm:grid-cols-3"
+                    } gap-6 place-items-center justify-items-center`}
+                >
                   {cat.items.map((s) => (
                     <div key={s.id} className="flex flex-col items-center">
-                      {s.logo ? (
-                        <img
-                          src={s.logo}
-                          alt={s.name}
-                          className={`${sizeMap[cat.title]} object-contain rounded shadow-md bg-white p-2`}
-                        />
-                      ) : (
-                        <div
-                          className={`${sizeMap[cat.title]} ${s.color} rounded shadow-md`}
-                        />
-                      )}
-                      <span className="mt-2 text-sm font-medium">{s.name}</span>
+                      <img
+                        src={s.logo}
+                        alt={s.name}
+                        className={`${sizeMap[cat.title]} object-contain rounded shadow bg-white p-2`}
+                      />
+                      <span className="mt-2 text-sm font-medium text-center">{s.name}</span>
                     </div>
                   ))}
                 </div>
@@ -111,6 +111,8 @@ export default function Patrocinadores() {
             ))}
           </div>
         </div>
+
+
 
         {/* Call to Action */}
         <div>

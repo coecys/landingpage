@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import placeholderImage from "../../../public/congreso-pasado.jpg"; // Pon aquí tu imagen real
 import Proximamente from "../../components/Proximamente";
+import EventSchedule from "../../components/SchedulePogram";
 
 const days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
 
@@ -38,7 +39,7 @@ export default function Program() {
 
 
 
-        <Proximamente />
+        <EventSchedule />
         
         {/* <h1 className="text-3xl font-bold mb-6">Programa del Evento</h1> */}
 
