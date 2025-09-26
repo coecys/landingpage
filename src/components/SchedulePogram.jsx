@@ -201,7 +201,7 @@ const DAYS = [
             timeBlock("13:00", "14:00", { conf: special("ALMUERZO") }),
             timeBlock("14:00", "15:00", {
                 conf: talk("Defendiendo el futuro: Seguridad digital en la era de la IA", "Luis Pablo Liquez"),
-                conf: talk("Conferencia: Principios de ciberseguridad corporativa", "René Ornélyz"),
+                taller: talk("Conferencia: Principios de ciberseguridad corporativa", "René Ornélyz"),
             }),
             timeBlock("15:00", "16:00", {
                 conf: talk("Del entretenimiento a la disrupción: el verdadero potencial de la IA", "Juan Diego Vega"),
