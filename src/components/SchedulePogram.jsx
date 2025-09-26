@@ -260,7 +260,7 @@ const DAYS = [
             timeBlock("15:00", "16:00", {
                 conf: talk(
                     "Deep Learning para Traders: Predicción de Precios con LSTM y Python",
-                    "Cris Patzán"
+                    "Cristhofer Patzán"
                 ),
                 taller: talk(
                     "Seguridad Web: Vulnerabilidad más importante",

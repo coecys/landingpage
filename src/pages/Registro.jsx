@@ -88,134 +88,50 @@ END:VCALENDAR`.trim();
   };
 
   return (
-    <section id="registro" className="mt-20 py-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-md mx-auto">
-          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-            <h1 className="text-3xl font-bold text-center text-[#002E56] mb-2">
-              Registro COECYS
-            </h1>
-            <p className="text-center text-gray-600 mb-6">
-              Completa tus datos para participar
-            </p>
+<section id="registro" className="mt-20 py-16">
+  <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full">
+      <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-100">
+        <h1 className="text-3xl font-bold text-center text-[#002E56] mb-4">
+          Registro COECYS
+        </h1>
 
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Nombre completo */}
-                <div>
-                  <label className="block text-sm font-medium text-[#002E56] mb-1">
-                    Nombre completo<span className="text-[#FE803E]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002E56] focus:border-transparent transition"
-                  />
-                </div>
+        <div className="space-y-4">
+          <h2 className="text-2xl font-semibold">¿Eres asistente?</h2>
 
-                {/* Universidad */}
-                <div>
-                  <label className="block text-sm font-medium text-[#002E56] mb-1">
-                    Universidad
-                  </label>
-                  <input
-                    type="text"
-                    name="university"
-                    value={form.university}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002E56] focus:border-transparent transition"
-                  />
-                </div>
+          <div className="mt-6">
+            <h3 className="text-xl font-semibold mb-4">Formulario de Asistencia</h3>
 
-                {/* Carrera */}
-                <div>
-                  <label className="block text-sm font-medium text-[#002E56] mb-1">
-                    Carrera
-                  </label>
-                  <input
-                    type="text"
-                    name="career"
-                    value={form.career}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002E56] focus:border-transparent transition"
-                  />
-                </div>
+            {/* Ocupa alto de la ventana */}
+            <div className="w-full min-h-[70vh] rounded-xl overflow-hidden border">
+              <iframe
+                title="Formulario de Conferencistas COECYS 2025"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdEheyleAw2YKKuaa_0h_wLovx5TEDAInWP3jaawDtAx8KsdQ/viewform?embedded=true"
+                className="w-full h-[70vh] sm:h-[75vh] lg:h-[80vh]"
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+                loading="lazy"
+                allow="clipboard-read; clipboard-write"
+              >
+                Cargando…
+              </iframe>
+            </div>
 
-                {/* Correo electrónico */}
-                <div>
-                  <label className="block text-sm font-medium text-[#002E56] mb-1">
-                    Correo electrónico<span className="text-[#FE803E]">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002E56] focus:border-transparent transition"
-                  />
-                </div>
-
-                {/* Tipo de participación */}
-                <div className="relative">
-                  <label className="block text-sm font-medium text-[#002E56] mb-1">
-                    Tipo de participación
-                  </label>
-                  <select
-                    name="type"
-                    value={form.type}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-[#002E56] focus:border-transparent bg-white pr-8 transition"
-                  >
-                    {participationOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-gray-500">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Botón enviar */}
-                <button
-                  type="submit"
-                  className="w-full bg-[#002E56] hover:bg-[#001F3D] text-white font-medium py-3 rounded-lg transition duration-200 ease-in-out transform hover:scale-[1.01] mt-6"
-                >
-                  Enviar registro
-                </button>
-              </form>
-            ) : (
-              <div className="text-center space-y-6 py-4">
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-                  <p className="text-lg font-semibold text-green-700">
-                    ¡Tu registro ha sido exitoso!
-                  </p>
-                  <p className="text-sm text-green-600 mt-1">
-                    Te hemos enviado un correo de confirmación
-                  </p>
-                </div>
-                <button
-                  onClick={downloadICS}
-                  className="bg-[#FE803E] hover:bg-[#E67035] text-white font-medium py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-[1.02] w-full"
-                >
-                  Agregar a calendario
-                </button>
-              </div>
-            )}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdEheyleAw2YKKuaa_0h_wLovx5TEDAInWP3jaawDtAx8KsdQ/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 text-sm underline"
+            >
+              Abrir el formulario en una pestaña nueva
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
   );
 }
