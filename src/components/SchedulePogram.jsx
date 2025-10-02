@@ -183,19 +183,22 @@ const DAYS = [
                     "Aplicación del PLN y Webscraping para el Análisis de Precios de Insumos Estatales",
                     "Elser Adolfo López Rosa"
                 ),
+                virtual: talk("Aplicación del Procesamiento de Lenguaje Natural y Webscraping para el Análisis de Precios de Insumos Estatales", "Elser Adolfo López", "", "https://meet.google.com/rmv-xvif-euz")
             }),
             timeBlock("09:00", "10:00", {
                 conf: talk("Criptografía post-cuántica", "Kevin Adiel Lajpop"),
-                virtual: talk("Título a definir", "José Luis Ola García", "Empresa Internaciones"),
             }),
-            timeBlock("10:00", "11:00", { conf: talk("Cyber Threat", "Marvin Amador") }),
+            timeBlock("10:00", "11:00", {
+                conf: talk("Cyber Threat", "Marvin Amador"),
+                virtual: talk("MCP Github Copilot Agent", "Geovani de León", "", "https://meet.google.com/mcu-ezcg-oqs"),
+            }),
             timeBlock("11:00", "11:30", { conf: special("COFFEE BREAK") }),
             timeBlock("11:40", "12:40", {
                 conf: talk("Automatización de procesos con Power Automate", "Marlon Orellana"),
                 virtual: talk(
                     "Los desafíos de la ciberseguridad para los jóvenes y egresados",
                     "Gustavo Guzmán Hernández",
-                    "México"
+                    "México", "https://meet.google.com/nnn-htnh-npt "
                 ),
             }),
             timeBlock("13:00", "14:00", { conf: special("ALMUERZO") }),
@@ -206,6 +209,9 @@ const DAYS = [
             timeBlock("15:00", "16:00", {
                 conf: talk("Del entretenimiento a la disrupción: el verdadero potencial de la IA", "Juan Diego Vega"),
             }),
+            timeBlock("16:00", "17:00", {
+                virtual: talk("Introducción a reinforcement learning y deep reinforcement learning", "Luis Leal", "", "https://meet.google.com/hgj-hqvv-kxr")
+            })
         ],
     },
 
@@ -271,8 +277,8 @@ const DAYS = [
     },
 ];
 
-function talk(title, speaker, subtitle = "") {
-    return { kind: "talk", title, speaker, subtitle };
+function talk(title, speaker, subtitle = "", link = "") {
+    return { kind: "talk", title, speaker, subtitle, link };
 }
 function special(label) {
     return { kind: "special", label };
@@ -510,6 +516,10 @@ function CellInner({ data, compact = false }) {
             <div className="mt-2">
                 <Badge className="bg-white text-gray-800">{data.speaker}</Badge>
             </div>
+            {
+                data.link &&
+                <div className="text-[13px] text-gray-600 mt-0.5"> Link:{data.link} <a></a></div>
+            }
         </div>
     );
 }
@@ -541,6 +551,11 @@ function Detail({ track, slot }) {
                             <Badge className="bg-blue-600 text-white">Conferencista</Badge>
                             <div className="mt-1 font-medium">{data.speaker}</div>
                         </div>
+                        {
+                            data.link && (
+                                <div className="text-blue-600 mt-2"><a href={data.link}>Link de Conferencia</a></div>
+                            )
+                        }
                     </>
                 )}
             </div>
