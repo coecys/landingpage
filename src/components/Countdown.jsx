@@ -22,10 +22,10 @@ export default function Countdown({ targetDate }) {
   }, [targetDate]);
 
   const timerItems = [
-    { label: "Días", value: timeLeft.days },
-    { label: "Horas", value: timeLeft.hours },
-    { label: "Minutos", value: timeLeft.minutes },
-    { label: "Segundos", value: timeLeft.seconds },
+    { label: "Días", value: 0 },
+    { label: "Horas", value: 0 },
+    { label: "Minutos", value: 0 },
+    { label: "Segundos", value: 0 },
   ];
 
   return (
